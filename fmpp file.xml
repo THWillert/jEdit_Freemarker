@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd">
+<!--
+fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
+-->
+
+<COMMANDO>
+	<UI>
+
+		<CAPTION LABEL="Options">
+
+			<TOGGLE LABEL="Stop on error" VARNAME="stop_error" DEFAULT="TRUE" />
+
+			<TOGGLE LABEL="Case sensitive" VARNAME="case_sens" />
+
+			<TOGGLE LABEL="Print stack trace" VARNAME="stack_trace" />
+
+			<TOGGLE LABEL="Append log file" VARNAME="log" DEFAULT="TRUE" />
+
+		</CAPTION>
+
+		<CAPTION LABEL="">
+			<CHOICE LABEL="Messages" VARNAME="mes" DEFAULT=" -v">
+				<OPTION LABEL="Verbose" VALUE=" -v" />
+				<OPTION LABEL="Quiet" VALUE=" -q" />
+				<OPTION LABEL="Really quiet" VALUE=" -Q" />
+			</CHOICE>
+			</CAPTION>
+
+		<CAPTION LABEL="Configuration">
+			<FILE_ENTRY LABEL="config.fmmp" VARNAME="config" DEFAULT="" />
+			<DIR_ENTRY LABEL="Base directory" VARNAME="base" DEFAULT="" />
+		</CAPTION>
+
+		<CAPTION LABEL="Data">
+			<DIR_ENTRY LABEL="Data root" VARNAME="data_root"  />
+		</CAPTION>
+
+		<CAPTION LABEL="Files">
+			<FILE_ENTRY LABEL="Input file" VARNAME="input" EVAL="buffer.getPath()" />
+			<FILE_ENTRY LABEL="Output file" VARNAME="output" EVAL='buffer.getDirectory() + "OUT\\" + buffer.getName().replaceAll(".ftl", ".txt")' />
+		</CAPTION>
+
+		<CAPTION LABEL="jEdit Console:">
+			<TOGGLE LABEL="Clear console" VARNAME="clr" DEFAULT="TRUE"/>
+		</CAPTION>
+	</UI>
+	<COMMANDS>
+		<COMMAND CONFIRM="FALSE" SHELL="System">
+		if (clr) clearConsole(view);
+
+		if ( buffer.isDirty() )
+		{
+			buffer.save(view,null);
+			VFSManager.waitForRequests();
+		}
+
+		buf = new StringBuffer();
+
+		if ( buffer.getMode().toString().equals("freemarker") )
+		{
+			File = new File(System.getenv("ProgramFiles") + "\\fmpp\\bin\\fmpp.bat");
+
+			if (File.exists())
+				buf.append("\"" + System.getenv("ProgramFiles") + "\\fmpp\\bin\\fmpp.bat\"");
+			else
+			{
+				Macros.error(view, "fmpp.bat not found!");
+				return;
+			}
+
+			FileConf = new File("\"" + config + "\"");
+			if (FileConf.exists() ) buf.append(" -C \"" + config + "\"");
+
+			FileBase = new File("\"" + base + "\"");
+			if ( FileBase.exists() &amp;&amp; FileBase.isDirectory() ) buf.append(" --configuration-base=\"" + base + "\"");
+
+			FileRoot = new File("\"" + data_root + "\"");
+			if ( FileRoot.exists() &amp;&amp; FileRoot.isDirectory() ) buf.append(" --data-root=\"" + data_root + "\"");
+
+			if (output == "") {
+				Macros.error(view, "No output file!");
+				return;
+			}
+			buf.append(" \"" + input + "\" -o \"" + output + "\"") ;
+
+			stop_error ? buf.append(" -s") : buf.append(" -c") ;
+			case_sens ? buf.append(" --case-sensitive") : buf.append(" --ignore-case") ;
+
+			stack_trace ? buf.append(" --print-stack-trace") : buf.append(" --dont-print-stack-trace") ;
+
+			log ? buf.append(" --append-log-file") : buf.append(" --dont-append-log-file") ;
+
+			buf.append(mes) ;
+		}
+		else
+		{
+			Macros.error(view, "No Freemarker-file in current buffer!");
+		};
+
+		buf.toString();
+		</COMMAND>
+	</COMMANDS>
+</COMMANDO>
