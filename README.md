@@ -6,7 +6,7 @@ jEdit Commando-Datei zur Benutzung von FreeMarker / FMPP
 
 Zur einfachen Benutzung der Kombination Freemaker / FMPP in jEdit.
 
-![WebUI Original](/images/jEdit_fmpp.png)
+![](/images/jEdit_fmpp.png)
 
 ### Voraussetzungen
 
@@ -23,7 +23,7 @@ Zur einfachen Benutzung der Kombination Freemaker / FMPP in jEdit.
 
 Zur korrekten Funktion bitte die Einstellungen des Console-Plugins prüfen:
 
-![WebUI Original](/images/Freemarker_jEdit_Console_SystemShell.png).
+![](/images/Freemarker_jEdit_Console_SystemShell.png).
 
 
  ## Author
