@@ -6,7 +6,7 @@ jEdit Commando-Datei zur Benutzung von FreeMarker / FMPP
 
 Zur einfachen Benutzung der Kombination Freemaker / FMPP in jEdit.
 
-![](/images/jEdit_fmpp.png)
+![](/images/jEdit_fmpp.PNG)
 
 ### Voraussetzungen
 
