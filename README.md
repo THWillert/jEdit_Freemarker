@@ -6,14 +6,14 @@ Commando-Datei zur einfachen Benutzung der Kombination Freemaker / FMPP in jEdit
 
 ![](/images/jEdit_fmpp.PNG)
 
-### Voraussetzungen
+## Voraussetzungen
 
 - jEdit + Console-Plugin
 - Freemarker
 - FMPP
 
 
-### Installation (Windows)
+## Installation (Windows)
 
     FMPP-Verzeichnis in %programmfiles%/FMPP
     freemarker.jar in %programmfiles%/FMPP/lib/
