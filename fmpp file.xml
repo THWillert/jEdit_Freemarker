@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd">
 <!--
-fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
+fmpp-command V1.1 17.02.2020, by Thorsten Willert
 -->
 
 <COMMANDO>
@@ -36,6 +36,10 @@ fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
 			<DIR_ENTRY LABEL="Data root" VARNAME="data_root"  />
 		</CAPTION>
 
+		<CAPTION LABEL="Variable">
+			<ENTRY LABEL="Variable" VARNAME="var" DEFAULT='' />
+		</CAPTION>
+
 		<CAPTION LABEL="Files">
 			<FILE_ENTRY LABEL="Input file" VARNAME="input" EVAL="buffer.getPath()" />
 			<FILE_ENTRY LABEL="Output file" VARNAME="output" EVAL='buffer.getDirectory() + "OUT\\" + buffer.getName().replaceAll(".ftl", ".txt")' />
@@ -57,8 +61,6 @@ fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
 
 		buf = new StringBuffer();
 
-		if ( buffer.getMode().toString().equals("freemarker") )
-		{
 			File = new File(System.getenv("ProgramFiles") + "\\fmpp\\bin\\fmpp.bat");
 
 			if (File.exists())
@@ -84,6 +86,8 @@ fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
 			}
 			buf.append(" \"" + input + "\" -o \"" + output + "\"") ;
 
+			buf.append(" -D \"" + var + "\"") ;
+
 			stop_error ? buf.append(" -s") : buf.append(" -c") ;
 			case_sens ? buf.append(" --case-sensitive") : buf.append(" --ignore-case") ;
 
@@ -92,11 +96,6 @@ fmpp-command V1.0 27. Juni 2016, by Thorsten Willert
 			log ? buf.append(" --append-log-file") : buf.append(" --dont-append-log-file") ;
 
 			buf.append(mes) ;
-		}
-		else
-		{
-			Macros.error(view, "No Freemarker-file in current buffer!");
-		};
 
 		buf.toString();
 		</COMMAND>
