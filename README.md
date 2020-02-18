@@ -6,6 +6,9 @@ Commando-Datei zur einfachen Benutzung der Kombination <a href="https://freemark
 
 ![](/images/jEdit_fmpp.PNG)
 
+
+Die Parameter sind in der [FMPP Anleitung](http://fmpp.sourceforge.net/commandline.html) beschrieben.
+
 ## Voraussetzungen
 
 - jEdit + Console-Plugin
