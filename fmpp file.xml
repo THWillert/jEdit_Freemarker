@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE COMMANDO SYSTEM "commando.dtd">
 <!--
-fmpp-command V1.1 17.02.2020, by Thorsten Willert
+fmpp-command V1.11 18.02.2020, by Thorsten Willert
 -->
 
 <COMMANDO>
@@ -36,8 +36,8 @@ fmpp-command V1.1 17.02.2020, by Thorsten Willert
 			<DIR_ENTRY LABEL="Data root" VARNAME="data_root"  />
 		</CAPTION>
 
-		<CAPTION LABEL="Variable">
-			<ENTRY LABEL="Variable" VARNAME="var" DEFAULT='' />
+		<CAPTION LABEL="Variables (var1:data, var2:data2 ...)">
+			<ENTRY LABEL="Variables" VARNAME="var" DEFAULT='' />
 		</CAPTION>
 
 		<CAPTION LABEL="Files">
