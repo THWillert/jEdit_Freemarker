@@ -30,5 +30,5 @@ Zur korrekten Funktion bitte die Einstellungen des Console-Plugins prüfen:
  [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
+ Das ganze steht unter der [GPL 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
