@@ -1,8 +1,8 @@
-# jEdit_Freemarker
+# jEdit_FreeMarker
 
 ## Übersicht
 
-Commando-Datei zur einfachen Benutzung der Kombination Freemaker / FMPP in jEdit.
+Commando-Datei zur einfachen Benutzung der Kombination <a href="https://freemarker.apache.org/">FreeMarker</a> / <a href="http://fmpp.sourceforge.net/index.html">FMPP</a> in <a href="http://www.jedit.org/">jEdit</a>.
 
 ![](/images/jEdit_fmpp.PNG)
 
