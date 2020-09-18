@@ -30,7 +30,7 @@ Zur korrekten Funktion bitte die Einstellungen des Console-Plugins prüfen:
  ## Author
  Thorsten Willert
 
- [Homepage](http://www.thorsten-willert.de/)
+ [Homepage](https://www.thorsten-willert.de/software/jedit/commando-files)
 
  ## Lizenz
  Das ganze steht unter der [GPL 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
